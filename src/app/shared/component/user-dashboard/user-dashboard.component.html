@@ -1,0 +1,39 @@
+
+
+<div class="row user-dashboard">
+    <div class="col-12 text-end mb-4">
+        <button
+        routerLink="/user/adduser"
+         mat-raised-button 
+        style="margin-top:20px;"
+        color="primary">Add User</button>
+    </div>
+    <div class="col-md-4">
+       <ul class="list-group mt-5"
+       >
+        <li 
+        [routerLink]="['/user',user.userId]"
+        [queryParams]="{userRole:user.userRole}"
+       routerLinkActive="active"
+        class="list-group-item  ms-3" *ngFor="let user of userArr">
+            {{user.userName}}
+            <small class="badge"
+            [ngClass]="{
+                'bg-success':user.isActive,
+                'bg-danger':!user.isActive
+                
+            }"
+            
+            >{{user.isActive ? 'Active':"In-Active"}}
+
+            </small>
+            {{user.userId}}
+
+        </li>
+
+       </ul>
+    </div>
+    <div class="col-md-8">
+       <router-outlet></router-outlet>
+    </div>
+</div>

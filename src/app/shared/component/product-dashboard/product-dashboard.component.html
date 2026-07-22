@@ -1,0 +1,46 @@
+<div class="row products-dashboard">
+  <div class="col-12 text-end">
+    <button
+    mat-raised-button color="primary"
+      routerLink="/product/addproduct"
+      class="mb-2"
+     style="margin:20px 10px;">
+      Add Product
+    </button>
+  </div>
+
+  <div class="col-md-4">
+    <ul
+      style="margin-left: 100px"
+      class="list-group">
+
+      <li
+        *ngFor="let product of products"
+        
+        [routerLink]="['/product', product.pid]"
+         routerLinkActive="active"
+
+        [queryParams]="{cr:product.canReturn}"
+        class="list-group-item">
+
+        {{ product.pname }}
+
+       <small
+        class="badge"
+         [ngClass]="{
+                  'bg-primary': product.pstatus === 'Dispatched',
+                  'bg-success': product.pstatus === 'Delivered',
+                  'bg-warning': product.pstatus === 'In-progress'
+                 }">
+             {{ product.pstatus }}
+        </small>
+
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="col-md-8">
+    <router-outlet></router-outlet>
+  </div>
+</div>

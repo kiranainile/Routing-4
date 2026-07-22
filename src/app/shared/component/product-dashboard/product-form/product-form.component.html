@@ -1,0 +1,67 @@
+<div class="card">
+  <div class="card-body">
+    <h3>{{isInEditMode? 'update Product': 'Add Product'}}</h3>
+    <form [formGroup]="productForm" (ngSubmit)="onProductAdd()">
+
+      <div class="form-group">
+        <label for="pname">Product Image</label>
+        <input
+          id="pimage"
+          type="text"
+          class="form-control"
+          
+          formControlName="pimage">
+          </div>
+    
+      <div class="form-group">
+        <label for="pname">Product Name</label>
+        <input
+          id="pname"
+          type="text"
+          class="form-control"
+          
+          formControlName="pname">
+      </div>
+
+      <div class="form-group">
+        <label for="pstatus">Product Status</label>
+        <select
+          id="pstatus"
+          class="form-control"
+          formControlName="pstatus">
+          <option value="In-progress">In-progress</option>
+          <option value="Dispatched">Dispatched</option>
+          <option value="Delivered">Delivered</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="canReturn">Product can return</label>
+        <select
+          id="canReturn"
+          class="form-control"
+          formControlName="canReturn">
+          <option [ngValue]="1">Yes</option>
+          <option [ngValue]="0">No</option>
+        </select>
+      </div>
+
+      <button
+      *ngIf="!isInEditMode"
+        type="submit"
+        class="btn btn-sm btn-primary mt-3">
+        Add Product
+      </button>
+      
+       <button
+       [disabled]="disableUpdateBtn"
+       (click)="onUpdate()"
+       *ngIf="isInEditMode"
+        type="submit"
+        class="btn btn-sm btn-danger mt-3">
+        update product
+      </button>
+
+    </form>
+  </div>
+</div>
