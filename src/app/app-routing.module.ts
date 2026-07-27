@@ -8,14 +8,22 @@ import { FairDashboardComponent } from './shared/component/fair-dashboard/fair-d
 import { ProductFormComponent } from './shared/component/product-dashboard/product-form/product-form.component';
 import { ProductDashboardComponent } from './shared/component/product-dashboard/product-dashboard.component';
 import { ProductComponent } from './shared/component/product/product.component';
+import { FairDetailsComponent } from './shared/component/fair-dashboard/fair-details/fair-details.component';
+import { AuthComponent } from './shared/component/auth/auth.component';
 
 
 const routes: Routes = [
 
   {
-    path:"home",
-    component:HomeDashboardComponent
-  },
+        path:'',
+        component:AuthComponent
+    },
+
+
+    {
+        path:'home',//http://localhost:4200
+        component:HomeDashboardComponent
+    },
   {
         path:'user',
         component:UserDashboardComponent,
@@ -54,10 +62,16 @@ const routes: Routes = [
 },
 
  
-  {
-    path:'fair',
-    component:FairDashboardComponent
-  }
+{
+  path: 'fair',
+  component: FairDashboardComponent,
+  children: [
+    {
+      path: ':fairId',
+      component: FairDetailsComponent
+    }
+  ]
+}
 
 
 ];

@@ -4,6 +4,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,8 +21,11 @@ import { HomeDashboardComponent } from './shared/component/home-dashboard/home-d
 import { UserFormComponent } from './shared/component/user-dashboard/user-form/user-form.component';
 import { UserDetailsComponent } from './shared/component/user-dashboard/user-details/user-details.component';
 import {MatChipsModule} from '@angular/material/chips';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductFormComponent } from './shared/component/product-dashboard/product-form/product-form.component';
+import { FairCardComponent } from './shared/component/fair-dashboard/fair-card/fair-card.component';
+import { FairDetailsComponent } from './shared/component/fair-dashboard/fair-details/fair-details.component';
+import { CommonModule } from '@angular/common';
+import { AuthComponent } from './shared/component/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +39,10 @@ import { ProductFormComponent } from './shared/component/product-dashboard/produ
     HomeDashboardComponent,
     UserFormComponent,
     UserDetailsComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    FairCardComponent,
+    FairDetailsComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,9 +53,9 @@ import { ProductFormComponent } from './shared/component/product-dashboard/produ
     MatButtonModule,
     MatSnackBarModule,
     MatChipsModule,
-    FormsModule,
-    ReactiveFormsModule
-    
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,25 @@
+
+
+
+.banner{
+    height: 300px;
+    position: relative;
+/* background-image: linear-gradient(0deg, #000 10%, transparent); */
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+
+}
+figcaption{
+    position: absolute;
+    bottom:10px;
+    left:10px;
+    color: #fff;
+}
+}
